@@ -1,0 +1,10 @@
+:root {
+    --bg-color-regular: #fff;
+    --text-color-regular: #333;
+}
+
+:root.DARK {
+    --bg-color-regular: #333;
+    --text-color-regular: #fff;
+}
+
