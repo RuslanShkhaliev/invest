@@ -1,0 +1,16 @@
+$BG_COLOR: var(--bg-color-regular);
+.wrap {
+    background-color: $BG_COLOR;
+    color: unset;
+    padding: 1.6rem;
+    border-radius: 8px;
+    box-shadow: rgb(88 102 126 / 8%) 0 4px 24px, rgb(88 102 126 / 12%) 0 1px 2px;
+    filter: drop-shadow(0px 1px 2px rgb(128, 138, 157, .12)) drop-shadow(5px 2px 4px rgba(128, 138, 157, 0.24));
+    white-space: nowrap;
+    transition: box-shadow .2s linear;
+    background-image: var(--bg-image-color);
+
+    &:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, .08);
+    }
+}
