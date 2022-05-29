@@ -5,7 +5,7 @@
 
 import { ref } from 'vue'
 import Modal from '@/components/Modal.vue'
-import { PortfolioService } from '@/service'
+import { PortfolioService } from '@/modules/portfolio/service'
 
 const title = ref('')
 

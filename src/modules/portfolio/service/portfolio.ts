@@ -15,10 +15,10 @@ export type Portfolios = {
 const getAll = () => useRequest<Portfolios>({ url: '/portfolios' })
 const getOne = (id: number) => useRequest<Portfolio>({ url: `/portfolios/${id}` })
 const create = (data: { title: string }) => useRequest({
-        url: '/portfolios',
-        method: 'post',
-        data,
-    })
+    url: '/portfolios',
+    method: 'post',
+    data,
+})
 
 export const PortfolioService = {
     getAll,

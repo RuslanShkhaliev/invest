@@ -8,7 +8,7 @@ type Props = {
     params?: Record<string, string>
 }
 
-const props = withDefaults(defineProps<Props>(), {});
+const props = withDefaults(defineProps<Props>(), {})
 </script>
 <template>
     <RouterLink

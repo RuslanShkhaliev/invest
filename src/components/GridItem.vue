@@ -19,7 +19,7 @@ defineProps({
         required: false,
         default: '',
     },
-});
+})
 
 </script>
 

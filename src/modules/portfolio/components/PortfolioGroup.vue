@@ -6,7 +6,7 @@
 import { PropType } from 'vue'
 import Grid from '@/components/Grid.vue'
 import GridItem from '@/components/GridItem.vue'
-import { Portfolio } from '@/service/portfolio'
+import { Portfolio } from '@/modules/portfolio/service/portfolio'
 import PortfolioWidget from './PortfolioWidget.vue'
 
 defineProps({
