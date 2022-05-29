@@ -9,7 +9,7 @@ defineProps({
         required: false,
         default: 'div',
     },
-});
+})
 </script>
 <template>
     <Component

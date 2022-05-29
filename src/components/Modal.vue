@@ -35,7 +35,10 @@
 
 <script lang="ts">
 import { onClickOutside } from '@vueuse/core'
-import { defineComponent, ref } from 'vue'
+import {
+    defineComponent,
+    ref,
+} from 'vue'
 import Flex from './Flex.vue'
 
 export default defineComponent({

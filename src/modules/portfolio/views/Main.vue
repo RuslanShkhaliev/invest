@@ -8,8 +8,8 @@ import {
 import Chart from '@/components/Chart.vue'
 import Flex from '@/components/Flex.vue'
 import ToolsBar from '@/components/ToolsBar.vue'
-import { PortfolioService } from '@/service'
-import { Portfolio } from '@/service/portfolio'
+import { PortfolioService } from '@/modules/portfolio/service'
+import { Portfolio } from '@/modules/portfolio/service/portfolio'
 import PortfolioGroup from '../components/PortfolioGroup.vue'
 
 const { data, isFinish } = PortfolioService.getAll()
