@@ -2,22 +2,42 @@
     setup
     lang="ts"
 >
-import { useRequest } from '../../../services';
-import PortfolioGroup from '../components/PortfolioGroup.vue';
+import {
+ computed, provide, ref, unref,
+} from 'vue'
+import Chart from '@/components/Chart.vue'
+import Flex from '@/components/Flex.vue'
+import ToolsBar from '@/components/ToolsBar.vue'
+import { PortfolioService } from '@/service'
+import { Portfolio } from '@/service/portfolio'
+import PortfolioGroup from '../components/PortfolioGroup.vue'
 
-const { fetchInitData } = useRequest();
-const {
-    data,
-    isFinished,
-} = fetchInitData();
-console.log(data, 'data');
+const { data, isFinish } = PortfolioService.getAll()
+const list = computed(() => data.value?.list || [])
+const portfolios = ref(list)
+
+const updatePortfolio = (portfolio: Portfolio) => {
+    portfolios.value.push(unref(portfolio))
+    console.log(portfolios, 'LIST')
+}
+provide('updatePortfolio', updatePortfolio)
 </script>
 
 <template>
-    <template v-if="isFinished">
+    <Flex
+        wrap="nowrap"
+        col-gap="10px"
+    >
+        <Chart />
+        <Chart />
+    </Flex>
+
+    <ToolsBar />
+
+    <template v-if="isFinish">
         <h3>{{ data?.general }}</h3>
         <PortfolioGroup
-            :list="[...data?.list,...data?.list,...data?.list,...data?.list]"
+            :list="portfolios"
         />
     </template>
 </template>

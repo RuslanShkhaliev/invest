@@ -3,8 +3,8 @@
     lang="ts"
 >
 
-import Container from '../shared/Container.vue';
-import Header from '../shared/Header.vue'; </script>
+import Header from '../../components/base/Header.vue'
+import Container from '../../components/Container.vue'</script>
 <template>
     <div class="layout">
         <Header />

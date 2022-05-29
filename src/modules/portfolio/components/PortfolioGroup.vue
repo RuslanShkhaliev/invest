@@ -3,10 +3,11 @@
     lang="ts"
 >
 
-import { PropType } from 'vue';
-import { Portfolio } from '../../../services';
-import Flex from '../../shared/Flex.vue';
-import PortfolioWidget from './PortfolioWidget.vue';
+import { PropType } from 'vue'
+import Grid from '@/components/Grid.vue'
+import GridItem from '@/components/GridItem.vue'
+import { Portfolio } from '@/service/portfolio'
+import PortfolioWidget from './PortfolioWidget.vue'
 
 defineProps({
     list: {
@@ -14,21 +15,22 @@ defineProps({
         required: true,
         default: () => [],
     },
-});
+})
 
 </script>
 
 <template>
-    <Flex
+    <Grid
         row-gap="2rem"
         col-gap="2rem"
     >
-        <PortfolioWidget
+        <GridItem
             v-for="card in list"
             :key="card.id"
-            v-bind="card"
-        />
-    </Flex>
+        >
+            <PortfolioWidget v-bind="card" />
+        </GridItem>
+    </Grid>
 </template>
 
 <style

@@ -2,8 +2,9 @@
     setup
     lang="ts"
 >
-import CardWrap from '../../shared/CardWrap.vue';
-import Flex from '../../shared/Flex.vue';
+import { useDateFormat } from '@vueuse/core'
+import CardWrap from '../../../components/CardWrap.vue'
+import Flex from '../../../components/Flex.vue'
 
 export type Portfolio = {
     id: number;
@@ -12,20 +13,28 @@ export type Portfolio = {
     value: number;
 }
 
-const props = withDefaults(defineProps<Portfolio>(), {});
+const props = defineProps<Portfolio>()
+
+const {
+    id, name, value, date,
+} = props
+
+const formattedDate = useDateFormat(date, 'DD.MM.YY')
 
 </script>
 
 <template>
     <CardWrap :to="{ name: 'portfolio', params: { id }}">
         <Flex direction="column">
-            <h4>{{ props.id }}&nbsp;{{ props.name }}</h4>
-            <strong>{{ props.value }}</strong>
-            <strong>{{ props.value }}</strong>
-            <strong>{{ props.value }}</strong>
-            <strong>{{ props.value }}</strong>
-            <strong>{{ props.value }}</strong>
-            <date>{{ props.date }}</date>
+            <h4>{{ id }}&nbsp;{{ name }}</h4>
+            <Flex justify="space-between">
+                <span>value</span>&nbsp;
+                <strong>{{ value }}</strong>
+            </Flex>
+            <Flex>
+                <span>date:</span>&nbsp;
+                <span>{{ formattedDate }}</span>
+            </Flex>
         </Flex>
     </CardWrap>
 </template>
@@ -34,5 +43,8 @@ const props = withDefaults(defineProps<Portfolio>(), {});
     lang="scss"
     scoped
 >
+h4 {
+    margin: 0;
+}
 
 </style>
