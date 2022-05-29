@@ -17,6 +17,7 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "no-return-await": "off",
         "import/no-unresolved": "off",
         "import/extensions": "off",
         "vue/no-setup-props-destructure": "warn",
