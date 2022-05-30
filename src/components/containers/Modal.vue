@@ -1,36 +1,49 @@
 <template>
-    <transition name="modal">
-        <Flex
-            class="modal"
-            justify="center"
-            align="center"
-            v-if="isOpen"
-        >
-            <div
-                class="inner wrap"
-                ref="modalInner"
+    <slot
+        name="button"
+        :open="open"
+    />
+    <Teleport to="body">
+        <transition name="modal">
+            <Flex
+                class="modal"
+                justify="center"
+                align="center"
+                v-if="isOpen"
             >
-                <Flex
-                    class="header"
-                    justify="space-between"
-                    align="center"
+                <div
+                    class="inner wrap"
+                    ref="modalInner"
                 >
-                    <h4 class="header__title">
-                        {{ title }}
-                    </h4>
-                    <button
-                        class="close"
-                        @click="close"
+                    <Flex
+                        class="header"
+                        justify="space-between"
+                        align="center"
                     >
-                        X
-                    </button>
-                </Flex>
-                <div class="content">
-                    <slot />
+                        <h4 class="header__title">
+                            {{ title }}
+                        </h4>
+                        <button
+                            class="close"
+                            @click="close"
+                        >
+                            X
+                        </button>
+                    </Flex>
+                    <div class="content">
+                        <slot />
+                    </div>
+                    <Flex
+                        v-if="$slots.footer"
+                        class="footer"
+                    >
+                        <slot name="footer" />
+                    </Flex>
                 </div>
-            </div>
-        </Flex>
-    </transition>
+            </Flex>
+        </transition>
+    </Teleport>
+
 </template>
 
 <script lang="ts">
@@ -43,38 +56,34 @@ import Flex from './Flex.vue'
 
 export default defineComponent({
     name: 'Modal',
+    emits: ['close', 'open'],
     props: {
         title: {
             type: String,
             required: false,
             default: '',
         },
+        isVisible: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
     },
     components: {
         Flex,
     },
-    setup() {
+    setup(props, { emit }) {
         const modalInner = ref()
 
-        // const {
-        //     activate,
-        //     deactivate,
-        // } = useFocusTrap(modalInner);
-        const isOpen = ref(false)
-
-        // watch(isOpen, (val) => {
-        //     if (val) {
-        //         activate();
-        //     } else {
-        //         deactivate();
-        //     }
-        // });
+        const isOpen = ref(props.isVisible)
 
         const open = () => {
             isOpen.value = true
+            emit('open')
         }
         const close = () => {
             isOpen.value = false
+            emit('close')
         }
 
         onClickOutside(modalInner, () => {
@@ -117,14 +126,16 @@ export default defineComponent({
 
 .inner {
     position: relative;
-    display: flex;
-    flex-direction: column;
     max-height: 90vh;
     max-width: 86rem;
     min-width: 32rem;
     transition: height 0.3s ease-in-out 0s;
     overflow: hidden;
 
+}
+
+.footer {
+    padding: 1rem;
 }
 
 .close {

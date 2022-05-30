@@ -4,9 +4,9 @@
 >
 
 import { PropType } from 'vue'
-import Grid from '@/components/Grid.vue'
-import GridItem from '@/components/GridItem.vue'
-import { Portfolio } from '@/modules/portfolio/service/portfolio'
+import Grid from '@/components/containers/Grid.vue'
+import GridItem from '@/components/containers/GridItem.vue'
+import { Portfolio } from '@/service/portfolio'
 import PortfolioWidget from './PortfolioWidget.vue'
 
 defineProps({

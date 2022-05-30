@@ -462,6 +462,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vueuse/router@npm:^8.5.0":
+  version: 8.5.0
+  resolution: "@vueuse/router@npm:8.5.0"
+  dependencies:
+    "@vueuse/shared": 8.5.0
+    vue-demi: "*"
+  peerDependencies:
+    vue-router: ">=4.0.0-rc.1"
+  checksum: 331a9d174e83f953d724eca5466b4b7211dd4822fdbeedf9a663b174f880e0d06880e117f6c363d1bd96e4a4ac6913ed123945c51826efdec4cfe1518c82a61d
+  languageName: node
+  linkType: hard
+
 "@vueuse/shared@npm:8.5.0":
   version: 8.5.0
   resolution: "@vueuse/shared@npm:8.5.0"
@@ -1949,6 +1961,7 @@ __metadata:
     "@typescript-eslint/parser": ^5.26.0
     "@vitejs/plugin-vue": ^2.3.3
     "@vueuse/core": ^8.5.0
+    "@vueuse/router": ^8.5.0
     axios: ^0.27.2
     eslint: ^8.16.0
     eslint-config-airbnb-base: ^15.0.0

@@ -4,8 +4,8 @@
 >
 
 import { useRoute } from 'vue-router'
-import CardWrap from '@/components/CardWrap.vue'
-import Flex from '@/components/Flex.vue'
+import CardWrap from '@/components/containers/CardWrap.vue'
+import Flex from '@/components/containers/Flex.vue'
 
 const { params } = useRoute()
 </script>
@@ -13,7 +13,6 @@ const { params } = useRoute()
 <template>
     {{ params.id }}
     <div>
-        <Chart></Chart>
         <Flex
             row-gap="2rem"
             col-gap="2rem"

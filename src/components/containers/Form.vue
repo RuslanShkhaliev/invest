@@ -2,7 +2,7 @@
     setup
     lang="ts"
 >
-import Flex from '@/components/Flex.vue'
+import Flex from '@/components/containers/Flex.vue'
 
 const emit = defineEmits(['submit'])
 const submit = (e: HTMLFormElement) => {
@@ -11,9 +11,9 @@ const submit = (e: HTMLFormElement) => {
 </script>
 
 <template>
-    <Flex justify="center">
+    <Flex>
         <form
-            class="form wrap"
+            class="form"
             @submit.prevent="submit"
         >
             <Flex
@@ -30,8 +30,8 @@ const submit = (e: HTMLFormElement) => {
     lang="scss"
     scoped
 >
+
 .form {
-    max-width: 60rem;
     width: 100%;
 }
 

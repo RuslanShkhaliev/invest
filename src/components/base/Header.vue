@@ -1,32 +1,15 @@
+<script setup>
+import Auth from '../Auth.vue'
+import Flex from '../containers/Flex.vue'</script>
+
 <template>
     <Flex
         tag="header"
         class="header"
     >
-        <Flex
-            tag="ul"
-            class="menu-list"
-            col-gap="100px"
-            align="center"
-            justify="space-between"
-        >
-            <li
-                class="menu-list__item"
-                v-for="(item, index) in menu"
-                :key="index"
-            >
-                {{ item }}
-            </li>
-        </Flex>
+        <Auth />
     </Flex>
 </template>
-
-<script setup>
-import Flex from '../Flex.vue';
-
-const menu = ['One', 'Two', 'Three', 'Four'];
-
-</script>
 
 <style
     lang="scss"

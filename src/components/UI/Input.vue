@@ -2,7 +2,7 @@
     setup
     lang="ts"
 >
-import Flex from '@/components/Flex.vue'
+import Flex from '@/components/containers/Flex.vue'
 
 defineProps({
     type: {
@@ -30,6 +30,11 @@ defineProps({
         required: false,
         default: '',
     },
+    prefix: {
+        type: String,
+        required: false,
+        default: '',
+    },
     modelValue: {
         type: String,
         required: false,
@@ -47,11 +52,12 @@ const onInput = ({ target }: Event) => {
 
 <template>
     <Flex direction="column">
-        <label>
+        <label class="field-wrap">
             <Flex
                 :direction="inline ? 'row' : 'column'"
-                :align="inline ? 'center' : ''"
+                :align="inline ? 'center' : 'flex-start'"
                 row-gap="1rem"
+                wrap="nowrap"
             >
                 <span
                     v-if="label"
@@ -60,19 +66,28 @@ const onInput = ({ target }: Event) => {
                 <Flex
                     wrap="nowrap"
                     class="input-wrap"
+                    justify="flex-end"
                 >
+                    <div
+                        v-if="prefix"
+                        class="prefix"
+                    >
+                        {{ prefix }}
+                    </div>
                     <input
                         @input="onInput"
                         class="input"
                         :type="type"
                         :model-value="modelValue"
                     />
-                    <Flex
-                        v-if="$slots.append"
-                        class="append"
-                    >
+                    <div v-if="$slots.append">
                         <slot name="append"></slot>
-                    </Flex>
+                    </div>
+                    <!--                    <Flex-->
+                    <!--                        -->
+                    <!--                        class="append"-->
+                    <!--                    >-->
+                    <!--                    </Flex>-->
                 </Flex>
             </Flex>
         </label>
@@ -96,11 +111,19 @@ const onInput = ({ target }: Event) => {
     lang="scss"
     scoped
 >
+.field-wrap {
+    width: 100%;
+}
+
 .label {
+    display: inline-flex;
+    margin-right: 1rem;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .input-wrap {
+    align-items: stretch;
     border-radius: 4px;
     border: 1px solid rgb(207, 214, 228);
     overflow: hidden;
@@ -121,9 +144,24 @@ const onInput = ({ target }: Event) => {
     }
 }
 
+.prepend {
+    position: absolute;
+}
+
+.prefix {
+    display: flex;
+    align-items: center;
+    text-transform: lowercase;
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    background: rgba(#333, .5);
+    color: #fff;
+}
+
 .append {
     max-width: 4rem;
     flex-grow: 1;
+    justify-self: flex-start;
 }
 
 .bottom {

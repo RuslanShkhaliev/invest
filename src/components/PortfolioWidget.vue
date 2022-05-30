@@ -3,12 +3,12 @@
     lang="ts"
 >
 import { useDateFormat } from '@vueuse/core'
-import CardWrap from '../../../components/CardWrap.vue'
-import Flex from '../../../components/Flex.vue'
+import CardWrap from '@/components/containers/CardWrap.vue'
+import Flex from '@/components/containers/Flex.vue'
 
 export type Portfolio = {
     id: number;
-    name: string;
+    title: string;
     date: string;
     value: number;
 }
@@ -16,7 +16,10 @@ export type Portfolio = {
 const props = defineProps<Portfolio>()
 
 const {
-    id, name, value, date,
+    id,
+    title,
+    value,
+    date,
 } = props
 
 const formattedDate = useDateFormat(date, 'DD.MM.YY')
@@ -26,9 +29,9 @@ const formattedDate = useDateFormat(date, 'DD.MM.YY')
 <template>
     <CardWrap :to="{ name: 'portfolio', params: { id }}">
         <Flex direction="column">
-            <h4>{{ id }}&nbsp;{{ name }}</h4>
+            <h4>{{ id }}&nbsp;{{ title }}</h4>
             <Flex justify="space-between">
-                <span>value</span>&nbsp;
+                <span>balance</span>&nbsp;
                 <strong>{{ value }}</strong>
             </Flex>
             <Flex>

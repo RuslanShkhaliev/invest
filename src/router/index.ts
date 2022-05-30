@@ -2,13 +2,11 @@ import {
     createRouter,
     createWebHistory,
 } from 'vue-router'
-import { authRoutes } from '@/modules/auth/routes'
-import { portfolioRoutes } from '@/modules/portfolio/routes'
+import { portfolioRoutes } from '@/router/routes'
 
 export const router = createRouter({
     history: createWebHistory(),
     routes: [
-        ...authRoutes,
         ...portfolioRoutes,
     ],
 })

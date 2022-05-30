@@ -2,7 +2,7 @@ import { useRequest } from '@/api'
 
 export type Portfolio = {
     id: number;
-    name: string;
+    title: string;
     date: Date;
     value: number;
 }
