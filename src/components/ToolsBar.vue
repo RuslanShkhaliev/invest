@@ -3,9 +3,9 @@
     lang="ts"
 >
 
-import ModalCreatePortfolio from '../modules/portfolio/modals/ModalCreatePortfolio.vue'
-import Grid from './Grid.vue'
-import GridItem from './GridItem.vue'</script>
+import Grid from './containers/Grid.vue'
+import GridItem from './containers/GridItem.vue'
+import ModalCreatePortfolio from './modals/CreatingPortfolio.vue'</script>
 
 <template>
     <Grid>
