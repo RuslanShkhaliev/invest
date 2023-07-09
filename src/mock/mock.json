@@ -1,0 +1,34 @@
+{
+  "portfolios": [
+    {
+      "bestPerformer": 23.80,
+      "worstPerformer": 74.07,
+      "allTimeProfit": 8.01,
+      "currentBalance": 237.19
+    },
+    {
+      "bestPerformer": 23.80,
+      "worstPerformer": 74.07,
+      "allTimeProfit": 8.01,
+      "currentBalance": 237.19
+    },
+    {
+      "bestPerformer": 23.80,
+      "worstPerformer": 74.07,
+      "allTimeProfit": 8.01,
+      "currentBalance": 237.19
+    },
+    {
+      "bestPerformer": 23.80,
+      "worstPerformer": 74.07,
+      "allTimeProfit": 8.01,
+      "currentBalance": 237.19
+    },
+    {
+      "bestPerformer": 23.80,
+      "worstPerformer": 74.07,
+      "allTimeProfit": 8.01,
+      "currentBalance": 237.19
+    }
+  ]
+}

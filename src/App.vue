@@ -1,5 +1,5 @@
 <script setup>
-import DefaultLayout from '@/layouts/DefaultLayout.vue';</script>
+import DefaultLayout from '@/common/layouts/DefaultLayout.vue';</script>
 
 <template>
     <VApp>

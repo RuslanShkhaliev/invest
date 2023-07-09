@@ -1,23 +1,22 @@
-import {createRouter, createWebHistory} from 'vue-router';
-import Asset from './views/Asset.vue';
-import Portfolio from './views/Portfolio.vue';
-import Portfolios from './views/Portfolios.vue';
-import Profile from './views/Profile.vue';
+import MainPage from '@/modules/Portfolios/MainPage.vue';
+import { createRouter, createWebHistory } from 'vue-router';
+
+const PortfolioPage = () => import('@/modules/Portfolios/PortfolioPage.vue');
+const AssetPage = () => import('@/modules/Asset/AssetPage.vue');
 
 const routes = [
     {
         path: '/',
         name: 'main',
-        component: Portfolios,
+        component: MainPage,
         meta: {
-            title: 'Portfolios'
+            title: 'Главная'
         }
     },
     {
-        path: '/portfolio/:id',
-        name: 'portfolio',
-        component: Portfolio,
-        props: true,
+        path: '/portfolios/:id',
+        name: 'portfolios',
+        component: PortfolioPage,
         meta: {
             title: 'Portfolio'
         },
@@ -25,20 +24,12 @@ const routes = [
     {
         path: '/asset/:id',
         name: 'asset',
-        component: Asset,
+        component: AssetPage,
         props: true,
         meta: {
             title: 'Asset'
         },
     },
-    {
-        path: '/profile',
-        name: 'profile',
-        component: Profile,
-        meta: {
-            title: 'Profile'
-        }
-    }
 ]
 
 export const router = createRouter({
